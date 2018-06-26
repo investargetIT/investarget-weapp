@@ -1,0 +1,9 @@
+<!--user.wxml-->
+<block>
+  <web-view wx:if="{{isLogined}}" src="{{url}}"></web-view>
+  <view wx:else class='container'>
+    <button class='wxlogin' type='primary' open-type='getUserInfo' bindgetuserinfo='wxAuth'>
+      <i class='wxlogo'></i>微信授权登录
+    </button>
+  </view>
+</block>

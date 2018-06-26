@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/proj/proj",
+    "pages/event/event",
+    "pages/user/user"
+  ],
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#10458f",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/index_fill.png",
+        "iconPath": "images/index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/proj_fill.png",
+        "iconPath": "images/proj.png",
+        "pagePath": "pages/proj/proj",
+        "text": "智库"
+      },
+      {
+        "selectedIconPath": "images/event_fill.png",
+        "iconPath": "images/event.png",
+        "pagePath": "pages/event/event",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "images/user_fill.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "海拓InvesTarget",
+    "navigationBarTextStyle":"black"
+  }
+}
