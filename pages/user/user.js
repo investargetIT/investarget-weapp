@@ -12,7 +12,7 @@ Page({
     wx.login({ success: function (auth1) {
       wx.login({ success: function (auth2) {
         if (auth1.code && auth2.code && auth1.code !== auth2.code) {
-          that.setData({ url: app.url(`/login?wxid=${auth1.code},${auth2.code}&userInfo=${escape(JSON.stringify(app.globalData.userInfo))}`), isLogined: true })
+          that.setData({ url: app.url(`/login?wxid=${auth1.code},${auth2.code}&userInfo=${encodeURI(JSON.stringify(app.globalData.userInfo))}`), isLogined: true })
         }
       }})
     }})
@@ -48,7 +48,5 @@ Page({
       }
     })
   },
-  onShow: function (e) {
-    console.log("Show Login", e)
-  }
+  onShow: function () {}
 })

@@ -6,7 +6,7 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    if (this.globalData.devMode) this.globalData.baseURL = "http://192.168.1.104:3000"
+    if (this.globalData.devMode) this.globalData.baseURL = "http://10.0.0.8:3000"
 
     // 设置底部标签栏
     // if (!wx.getStorageSync('token')) wx.setTabBarBadge({
@@ -32,7 +32,13 @@ App({
   url (uri) {
     return this.globalData.baseURL + uri;
   },
+  log (...logs) {
+    if (this.globalData.devMode) {
+      console.log((new Date()).toUTCString(), ...logs);
+    }
+  },
   globalData: {
+    latestInfo: null,
     userInfo: null,
     devMode: false,
     baseURL: "https://m.investarget.com"

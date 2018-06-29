@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/proj/proj",
     "pages/event/event",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/dtil/dtil"
   ],
   "tabBar": {
     "color": "#999",
