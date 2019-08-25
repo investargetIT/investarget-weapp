@@ -25,6 +25,8 @@ Page({
               }
             }
           })
+        } else {
+          that.setData({ url: app.url('/?clear=1') })
         }
       }
     })
