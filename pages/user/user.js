@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    url: app.url("/login"),
+    url: null,
     isLogined: true
   },
   login() {

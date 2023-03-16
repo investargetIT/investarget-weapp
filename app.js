@@ -6,7 +6,7 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    if (this.globalData.devMode) this.globalData.baseURL = "http://10.0.0.8:3000"
+    if (this.globalData.devMode) this.globalData.baseURL = "http://192.168.0.24:3000"
 
     // 设置底部标签栏
     // if (!wx.getStorageSync('token')) wx.setTabBarBadge({
