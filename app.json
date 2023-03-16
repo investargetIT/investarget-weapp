@@ -1,10 +1,6 @@
 {
   "pages": [
-    "pages/user/user",
-    "pages/index/index",
-    "pages/proj/proj",
-    "pages/event/event",
-    "pages/dtil/dtil"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

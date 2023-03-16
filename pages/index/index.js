@@ -4,31 +4,49 @@ const app = getApp()
 
 Page({
   data: {
-    url: app.url("/")
+    url: null,
+    isLogined: true
   },
-  bindmessage: function (option) {
-    console.log(option.detail.data);
+  login() {
+    let that = this;
+    wx.login({ success: function (auth1) {
+      wx.login({ success: function (auth2) {
+        if (auth1.code && auth2.code && auth1.code !== auth2.code) {
+          that.setData({ url: app.url(`/login?wxid=${auth1.code},${auth2.code}&userInfo=${encodeURI(JSON.stringify(app.globalData.userInfo))}`), isLogined: true })
+        }
+      }})
+    }})
   },
-  onLoad: function (option) {
+  wxAuth(data) {
+    if (data.detail.userInfo) {
 
-    app.log("Index.OnLoad", option);
-    if (option.pid && option.token) wx.navigateTo({ url: `/pages/dtil/dtil?pid=${option.pid}&token=${option.token}` });
+      // 用户同意授权
+      app.globalData.userInfo = data.detail.userInfo;
+      wx.reLaunch({
+        url: '/pages/user/user',
+      })
+      this.login();
 
-    let that = this
+    } else {
+
+      // 用户取消授权
+      wx.showModal({
+        title: '警告',
+        content: '用户取消授权',
+      })
+
+    }
+  },
+  onLoad: function () {
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          wx.login({
-            success: function (auth) {
-              if (auth.code) {
-                that.setData({ url: app.url(`/?wxid=${auth.code}`) })
-              }
-            }
-          })
+          this.login();
         } else {
-          that.setData({ url: app.url('/?clear=1') })
+          this.setData({ isLogined: false });
         }
       }
     })
   },
+  onShow: function () {}
 })
