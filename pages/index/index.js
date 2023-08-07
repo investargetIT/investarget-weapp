@@ -23,7 +23,7 @@ Page({
       // 用户同意授权
       app.globalData.userInfo = data.detail.userInfo;
       wx.reLaunch({
-        url: '/pages/user/user',
+        url: '/pages/index/index',
       })
       this.login();
 
